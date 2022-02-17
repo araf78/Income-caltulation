@@ -15,14 +15,14 @@
 <body>
     <!-- header start -->
     <header>
-        <h1 class="text-center">Money's Life </h1>
+        <h1 class="text-center fw-bolder mb-5">Income Calculation</h1>
     </header>
     <!-- header end -->
     <!-- main start -->
     <main>
         <section class="container mt-8">
-            <div class="container overflow-hidden">
-                <div id="input-pad" class="row gy-5">
+            <div id="input-pad" class="container overflow-hidden">
+                <div  class="row gy-5">
                   <div class="col col-lg-6 ">
                     <div id="img-item " class="p-3 ">
                       <img src="moneyget.jpg" alt="">
@@ -30,49 +30,104 @@
                   </div>
                   <!-- second columns -->
 
-                  <div class="col col-lg-6">
-                    <div class="p-3 border">
+                  <div class=" bg-secondary p-2 text-dark bg-opacity-10 col-lg-6">
+                    <div class="p-3">
                         <div>
                           <div>
-                            <h4 class="text-center">Income</h4>
-                            <div class="d-flex">
-                                Income : <input id="total-income" type="text">
+                            <h4 class="text-center fw-bolder">Income</h4>
+                            <div class="row d-flex justify-content-center mb-3">
+                            <div class="col-2 fw-bolder" >
+                                Income: 
+                            </div>
+                            <div class="col-4">
+                            <input id="total-income" type="text">
+                            </div>
                             </div>
                             
                           </div>
                           <section class="">
-                            <h4 class="text-center">Expenses</h4>
-                            <div class="mb-3">
-                                 Food:  <input id="food-value" type="text">
+                            <h4 class="text-center fw-bolder">Expenses</h4>
+                            <div class="row d-flex justify-content-center mb-3">
+                                <div class="col-2 fw-bolder">
+                                  Food:
+                                </div>  
+                                <div class="col-4">
+                                  <input id="food-value" type="text">
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                 Rent:  <input id="rent-value" type="text">
+                            <div class="row d-flex justify-content-center mb-3">
+                                <div class="col-2 fw-bolder">
+                                  Rent:
+                                </div>  
+                                <div class="col-4">
+                                  <input id="rent-value" type="text"> 
+                                </div>
                             </div>
-                            <div>
-                                 Clothes:   <input id="clothes-value" type="text">
+                            <div class="row d-flex justify-content-center mb-3">
+                                <div class="col-2 fw-bolder">
+                                  Clothes: 
+                                </div>  
+                                <div class="col-4">
+                                  <input id="clothes-value" type="text">
+                                </div>
                             </div>
-                           <button  id="calc-btn" class="button mt-3 mb-3 px-4 rounded" type="submit">Calculate</button>
+                        <div class="d-flex justify-content-center">
+                          <button  id="calc-btn" class="button mt-3 mb-3 px-4 rounded" type="submit">Calculate</button>
+                        </div>
+
 
                            <!-- total expenses & balance part start -->
-                           <div class="mb-3">
-                               Total Expenses:     <span id="total-expenses">00</span> 
-                           </div>
-                           <div>
-                               Balance:     <span id="have-balance">00</span> 
-                           </div>
+                        <div class="row d-flex justify-content-center mb-3">
+                            <div class="col-5 col-lg-3 fw-bolder">
+                              Total Expenses:
+                            </div>  
+                            <div class="col-4">
+                              <span id="total-expenses">00</span> 
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center mb-3">
+                          <div class="col-2 fw-bolder">
+                            Balance: 
+                          </div>  
+                          <div class="col-4">
+                            <span id="have-balance">00</span> 
+                          </div>
+                      </div>
+                          
                             <!-- total expenses & balance part end -->
                             <!-- save calculation part start -->
+                            <div class="row d-flex justify-content-center align-items-center mb-3">
+                              <div class="col-2 col-lg-1 fw-bolder">
+                                Save: 
+                              </div>  
+                              <div class="col-7 col-lg-4">
+                                <span> <input id="save-money" type="text"> % </span>
+                              </div>
+                            
+                              <div class="col-3 col-lg-2">
+                                <button id="save-btn" onclick="saveCalc()"  class="button mt-3 mb-3 px-4 rounded" type="submit">Save</button>
+                              </div>
+                          </div>
                            <div>
-                            <span>Save:   <input id="save-money" type="text">   %    <button  id="save-btn"  class="button mt-3 mb-3 px-4 rounded" type="submit">Save</button></span>
-                           </div>
-                           <div class="mb-3">
-                            Saving Amount:     <span id="saving-amount">00</span> 
-                        </div>
-                        <div>
-                          Remaining  Balance:     <span id="remaining-balance">00</span> 
+                            
+                           
+                           <div class="row fw-bolder d-flex justify-content-center mb-3">
+                            <div class="col-5 col-lg-3">
+                              Saving Amount: 
+                            </div>  
+                            <div class="col-2 col-lg-4">
+                              <span id="saving-amount">00</span> 
+                            </div>
+                           <div class="row d-flex justify-content-center mb-3">
+                            <div class="col-6 col-lg-4">
+                              Remaining  Balance: 
+                            </div>  
+                            <div class="col-2 col-lg-4">
+                              <span id="remaining-balance">00</span> 
+                            </div>
                         </div>
                         <div class="notify-bar">
-                          <p id="error-message" class="notify  mt-5 text-center  border-2 bg-danger p-2 text-dark bg-opacity-25 w-50 d-flex justify-content-center">! Give a number !</p>
+                          <p id="error-message" class="notify fw-bolder  mt-5 text-center  border-2 bg-danger p-2 text-dark bg-opacity-10 w-50 d-flex justify-content-center">⚠️ Give a number !</p>
                       </div>
                            <!-- save calculation part end -->
                         </section>
