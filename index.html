@@ -7,7 +7,8 @@
     <title>Money</title>
     <!-- bootstrap stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+   <!-- tailwind stylesheets -->
+   <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <link rel="stylesheet" href="css/style.css"> -->
 </head>
@@ -21,9 +22,11 @@
     <main>
         <section class="container mt-8">
             <div class="container overflow-hidden">
-                <div class="row gy-5">
+                <div id="input-pad" class="row gy-5">
                   <div class="col col-lg-6 ">
-                    <div id="img-item " class="p-3 "><img src="moneyget.jpg" alt=""></div>
+                    <div id="img-item " class="p-3 ">
+                      <img src="moneyget.jpg" alt="">
+                    </div>
                   </div>
                   <!-- second columns -->
 
@@ -48,14 +51,30 @@
                             <div>
                                  Clothes:   <input id="clothes-value" type="text">
                             </div>
-                           <button onclick="calculate()" class="button px-4 rounded" type="submit">Calculate</button>
-                           <div>
+                           <button  id="calc-btn" class="button mt-3 mb-3 px-4 rounded" type="submit">Calculate</button>
+
+                           <!-- total expenses & balance part start -->
+                           <div class="mb-3">
                                Total Expenses:     <span id="total-expenses">00</span> 
                            </div>
                            <div>
                                Balance:     <span id="have-balance">00</span> 
                            </div>
-                            
+                            <!-- total expenses & balance part end -->
+                            <!-- save calculation part start -->
+                           <div>
+                            <span>Save:   <input id="save-money" type="text">   %    <button  id="save-btn"  class="button mt-3 mb-3 px-4 rounded" type="submit">Save</button></span>
+                           </div>
+                           <div class="mb-3">
+                            Saving Amount:     <span id="saving-amount">00</span> 
+                        </div>
+                        <div>
+                          Remaining  Balance:     <span id="remaining-balance">00</span> 
+                        </div>
+                        <div class="notify-bar">
+                          <p id="error-message" class="notify  mt-5 text-center  border-2 bg-danger p-2 text-dark bg-opacity-25 w-50 d-flex justify-content-center">! Give a number !</p>
+                      </div>
+                           <!-- save calculation part end -->
                         </section>
                           
                         </div>

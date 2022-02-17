@@ -1,4 +1,4 @@
-function calculate(){
+function calcTotalExpenses(){
     const foodValue = document.getElementById('food-value').value;
     const rentValue = document.getElementById('rent-value').value;
     const clothesValue = document.getElementById('clothes-value').value;
@@ -6,15 +6,54 @@ function calculate(){
     // calculate total Expenses
     const totalExpenses =parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue);
     document.getElementById('total-expenses').innerText = totalExpenses;
+    console.log('totalExpenses',totalExpenses);   
     return totalExpenses;
-    // console.log(totalExpenses);   
 }
 // total income
-const totalIncome = document.getElementById('total-income').value;
-const haveBalance = document.getElementById('have-balance').value;
-const totalExpenses = calculate();
-const balance = totalIncome - totalExpenses;
-console.log(totalExpenses);
-// const totalIncome = calculate();
-console.log(totalIncome);
-// const balance = calculate();
+document.getElementById('calc-btn').addEventListener('click', function(){
+
+    const totalIncome = document.getElementById('total-income').value;
+    const totalExpenses = calcTotalExpenses();
+    // balance calculation
+    const balance = totalIncome - totalExpenses;
+    console.log('balance', balance);
+    document.getElementById('have-balance').innerText = balance;
+});
+/* // saving amount & remaning balance calculation
+document.getElementById('save-btn').addEventListener('click', function(){
+    const totalIncome = document.getElementById('total-income').value;
+    const saveMoneyInput = document.getElementById('save-money').value;
+    console.log(saveMoneyInput);
+
+    const savingAmount = (totalIncome * saveMoneyInput) / 100;
+    document.getElementById('saving-amount').innerText = savingAmount;
+    // console.log(document.getElementById('saving-amount').innerText);
+
+    const totalExpenses = calcTotalExpenses();
+    document.getElementById('remaining-balance').innerText = totalExpenses - savingAmount;
+    // console.log(document.getElementById('remaining-balance').innerText);
+}); */
+document.getElementById('input-pad').addEventListener('click',function(event){
+    const inputNumber = event.target.value;
+    // const errorMessage = document.getElementById('error-message');
+
+   if( isNaN(inputNumber)){
+    document.getElementById('error-message').style.display = 'block';
+   }
+   else{
+       // saving amount & remaning balance calculation
+document.getElementById('save-btn').addEventListener('click', function(){
+    const totalIncome = document.getElementById('total-income').value;
+    const saveMoneyInput = document.getElementById('save-money').value;
+    console.log(saveMoneyInput);
+
+    const savingAmount = (totalIncome * saveMoneyInput) / 100;
+    document.getElementById('saving-amount').innerText = savingAmount;
+    // console.log(document.getElementById('saving-amount').innerText);
+
+    const totalExpenses = calcTotalExpenses();
+    document.getElementById('remaining-balance').innerText = totalExpenses - savingAmount;
+    // console.log(document.getElementById('remaining-balance').innerText);
+});
+   }
+})

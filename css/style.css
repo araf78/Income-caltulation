@@ -5,3 +5,13 @@
 background-color: #59A5FF;
 font-weight: 600;
 }
+.notify {
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    background: #222436;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 5px 20px;
+    display: none;
+}
