@@ -10,7 +10,11 @@ function calcTotalExpenses(){
     return totalExpenses;
 }
 // total income
-document.getElementById('calc-btn').addEventListener('click', function(){
+function incomeTest(){
+    const errorMessage =  document.getElementById('error-message').style.display='block';
+}
+// document.getElementById('calc-btn').addEventListener('click', 
+function balance(){
     const totalIncome = document.getElementById('total-income').value;
     const foodInput = document.getElementById('food-value').value;
     const rentInput =  document.getElementById('rent-value').value;
@@ -19,24 +23,27 @@ document.getElementById('calc-btn').addEventListener('click', function(){
     const totalExpenses = calcTotalExpenses();
     // balance calculation
     if(isNaN(totalIncome)){
-        console.log(totalIncome);
         // document.getElementById('error-message').style.display = 'block';
+        // totalIncome = '';
+       alert('⚠️ Give a number in Income  !');
     }
     else if(isNaN(foodInput)){
-        console.log(foodInput);
+        alert('⚠️ Give a number in Food  !');
     }
     else if(isNaN(rentInput)){
-        console.log(rentInput);
+        alert('⚠️ Give a number in Rent  !');
     }
     else if(isNaN(clothesInput)){
-        console.log(clothesInput);
+        alert('⚠️ Give a number in Clothes  !');
     }
     else{
     const balance = totalIncome - totalExpenses;
     console.log('balance', balance);
     document.getElementById('have-balance').innerText = balance;
+    console.log(document.getElementById('have-balance').innerText,'balance')
+    return  document.getElementById('have-balance').innerText;
     }
-});
+};
 /* // saving amount & remaning balance calculation
 document.getElementById('save-btn').addEventListener('click', function(){
     const totalIncome = document.getElementById('total-income').value;
@@ -65,8 +72,8 @@ document.getElementById('save-btn').addEventListener('click', function(){
     document.getElementById('saving-amount').innerText = savingAmount;
     // console.log(document.getElementById('saving-amount').innerText);
 
-    const totalExpenses = calcTotalExpenses();
-    document.getElementById('remaining-balance').innerText = totalExpenses - savingAmount;
+    const newBalance = balance();
+    document.getElementById('remaining-balance').innerText = newBalance - savingAmount;
     // console.log(document.getElementById('remaining-balance').innerText);
     };
    
