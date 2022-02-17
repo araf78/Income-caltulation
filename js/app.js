@@ -2,28 +2,20 @@ function calcTotalExpenses(){
     const foodValue = document.getElementById('food-value').value;
     const rentValue = document.getElementById('rent-value').value;
     const clothesValue = document.getElementById('clothes-value').value;
-    //  console.log(foodValue,rentValue,clothesValue)
     // calculate total Expenses
     const totalExpenses =parseInt(foodValue) + parseInt(rentValue) + parseInt(clothesValue);
     document.getElementById('total-expenses').innerText = totalExpenses;
-    console.log('totalExpenses',totalExpenses);   
     return totalExpenses;
 }
 // total income
-function incomeTest(){
-    const errorMessage =  document.getElementById('error-message').style.display='block';
-}
-// document.getElementById('calc-btn').addEventListener('click', 
 function balance(){
     const totalIncome = document.getElementById('total-income').value;
     const foodInput = document.getElementById('food-value').value;
     const rentInput =  document.getElementById('rent-value').value;
     const clothesInput =  document.getElementById('clothes-value').value;
-    console.log(totalIncome)
     const totalExpenses = calcTotalExpenses();
     // balance calculation
     if(isNaN(totalIncome) || totalIncome < 0){
-        // document.getElementById('error-message').style.display = 'block';
        alert('⚠️ Give a Positve number in Income  !');
     }
     else if(isNaN(foodInput) || foodInput < 0){
@@ -35,11 +27,12 @@ function balance(){
     else if(isNaN(clothesInput) || clothesInput < 0){
         alert('⚠️ Give a Positve number in Clothes  !');
     }
+    else if(totalIncome < totalExpenses){
+        alert('⚠️ How is it possible man! Income < expenses ??  !');
+    }
     else{
-    const balance = totalIncome - totalExpenses;
-    console.log('balance', balance);
+    const balance = parseInt(totalIncome - totalExpenses);
     document.getElementById('have-balance').innerText = balance;
-    console.log(document.getElementById('have-balance').innerText,'balance')
     return  balance;
     }
 };
@@ -50,14 +43,14 @@ function balance(){
     if(isNaN(saveMoneyInput)){
         alert('⚠️! Give a number !⚠️')
     }
-    else if(saveMoneyInput < 0){
-        alert('⚠️! Give a Positive number.Okay !⚠️')
+    else if(saveMoneyInput < 0 || saveMoneyInput > 100){
+        alert('⚠️! Give a number more than 0 & less than 100.Okay !⚠️')
     }
     else{
-    const savingAmount = (totalIncome * saveMoneyInput) / 100;
+    const savingAmount = parseInt((totalIncome * saveMoneyInput) / 100);
     document.getElementById('saving-amount').innerText = savingAmount;
 
     const newBalance = balance();
-    document.getElementById('remaining-balance').innerText = newBalance - savingAmount;
+    document.getElementById('remaining-balance').innerText = parseInt(newBalance - savingAmount);
     }
     };
